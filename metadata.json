@@ -1,0 +1,6 @@
+{
+  "name": "Pustaka Aksara — Perpustakaan Digital Inklusif",
+  "description": "Perpustakaan digital terbuka yang memungkinkan pencarian, peminjaman instan, dan pembacaan buku secara daring dengan dukungan aksesibilitas universal dan pembaca suara.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

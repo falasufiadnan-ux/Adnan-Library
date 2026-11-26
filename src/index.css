@@ -1,0 +1,107 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-serif-body: 'Source Serif 4', Georgia, serif;
+    --font-hyperlegible: 'Atkinson Hyperlegible', 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  /* Accessibility: Global font scale presets */
+  html.a11y-text-lg {
+    font-size: 112.5%;
+  }
+
+  html.a11y-text-xl {
+    font-size: 125%;
+  }
+
+  /* Accessibility: Dyslexia-friendly & hyperlegible global mode */
+  html.a11y-dyslexia,
+  html.a11y-dyslexia body {
+    font-family: var(--font-hyperlegible) !important;
+    letter-spacing: 0.03em;
+    word-spacing: 0.08em;
+    line-height: 1.75;
+  }
+
+  /* Accessibility: Reduced motion override */
+  html.a11y-reduced-motion *,
+  html.a11y-reduced-motion *::before,
+  html.a11y-reduced-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* High-visibility focus ring for keyboard & switch navigation */
+  :focus-visible {
+    outline: 3px solid #1E3A8A;
+    outline-offset: 2px;
+  }
+
+  html.dark :focus-visible {
+    outline-color: #93C5FD;
+  }
+
+  html.a11y-high-contrast :focus-visible {
+    outline: 3px solid #FDE047;
+    outline-offset: 3px;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-serif-body {
+  font-family: var(--font-serif-body);
+}
+
+.font-hyperlegible {
+  font-family: var(--font-hyperlegible);
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Skip link for screen reader & keyboard users */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background-color: #1E3A8A;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  border-radius: 0.5rem;
+}
